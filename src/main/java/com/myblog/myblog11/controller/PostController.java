@@ -5,6 +5,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/posts")
 public class PostController {
@@ -19,13 +21,23 @@ public class PostController {
 
     }
 
-    //http://localhost:8081/api/posts?id=1
-       @GetMapping
+    //http://localhost:8081/api/posts/particular?id=1
+       @GetMapping("/particular")
       public ResponseEntity<PostDto> getPostById(@RequestParam long id){
            PostDto dto = postService.getPostById(id);
            return new ResponseEntity<>(dto,HttpStatus.OK);
 
-
        }
+    //http://localhost:8081/api/posts?pageNo=0&pageSize=3
+       @GetMapping
+        public List<PostDto> getAllPosts(
+                @RequestParam(name = "pageNo",required = false ,defaultValue = "0") int pageNo,
+                @RequestParam(name = "pageSize",required = false ,defaultValue = "3") int pageSize
+
+       ){
+       List<PostDto> postDtos = postService.getAllPosts(pageNo,pageSize);
+       return postDtos;
+        }
+
 
 }
