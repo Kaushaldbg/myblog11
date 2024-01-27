@@ -7,7 +7,9 @@ import com.myblog.myblog11.payload.CommentDto;
 import com.myblog.myblog11.repository.CommentRepository;
 import com.myblog.myblog11.repository.PostRepository;
 import com.myblog.myblog11.service.CommentService;
+import org.springframework.stereotype.Service;
 
+@Service
 public class CommentServiceImpl implements CommentService {
 
     private PostRepository postRepository;
@@ -25,16 +27,18 @@ public class CommentServiceImpl implements CommentService {
                 () -> new ResourceNotFoundException("post Not found with id " +postId)
         );
         Comment comment = new Comment();
+
+        comment.setText(commentDto.getText());
         comment.setEmail(commentDto.getEmail());
-        comment.setText(comment.getText());
         comment.setPost(post);
 
      Comment savedComment  =  commentRepository.save(comment);
 
      CommentDto dto = new CommentDto();
      dto.setId(savedComment.getId());
-     dto.setEmail(savedComment.getEmail());
      dto.setText(savedComment.getText());
+     dto.setEmail(savedComment.getEmail());
+
 
         return dto;
     }
