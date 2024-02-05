@@ -36,9 +36,9 @@ public class Main {
 //        List<Integer> collect = Person.stream().map(e -> e + 10).collect(Collectors.toList());
 //        System.out.println(collect);= Arrays.asList(10, 15, 30, 60.70);
 
-//        List<Integer> Person = Arrays.asList(10, 15, 30, 40, 50);
-//        List<Integer> collect = Person.stream().map(n -> n * n).collect(Collectors.toList());
-//        System.out.println(collect);
+        List<Integer> Person = Arrays.asList(10, 15, 30, 40, 50);
+        List<Integer> collect = Person.stream().map(n -> n * n).collect(Collectors.toList());
+       System.out.println(collect);
 //        List<Integer> Person = Arrays.asList(10, 15, 30, 40, 50);
 //        List<Integer> collect = Person.stream().map(n -> n + n).collect(Collectors.toList());
 //        System.out.println(collect);

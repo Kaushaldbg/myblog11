@@ -1,13 +1,13 @@
 package com.myblog.myblog11;
 
-public class TestClass {
-//    public static void main(String [] args){
-//        TestClass testClass = new TestClass();
-//        int val = testClass.test();
-//        System.out.println(val);
-//    }
-//     public int test(){
-//     int otp=   SampleTest.test();
-//        return  otp;
-     }
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
+public class TestClass {
+    public static void main(String[] args){
+        new BCryptPasswordEncoder();
+        PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        System.out.println(passwordEncoder.encode("Testing"));
+    }
+
+}
