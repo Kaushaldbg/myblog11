@@ -53,7 +53,7 @@ public class Test3 {
         for(Map.Entry<Integer,List<Employee>>entry : collect.entrySet()){
             int age = entry.getKey();
             List<Employee>employeesWithAge = entry.getValue();
-            System.out.println("age:"+age+"--");
+            System.out.println("age:"+age+"--"                                     );
 
             for(Employee e:employeesWithAge){
                 System.out.println(e.getCity());

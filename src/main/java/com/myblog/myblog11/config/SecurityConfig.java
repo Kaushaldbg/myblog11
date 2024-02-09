@@ -19,7 +19,7 @@ import java.util.Collection;
 
 
 @Configuration
-    @EnableWebSecurity
+@EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
     public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Bean
@@ -32,7 +32,7 @@ import java.util.Collection;
                 .csrf().disable()
                 .authorizeRequests()
                 .antMatchers(HttpMethod.GET, "/api/**").permitAll()
-               // .antMatchers(HttpMethod.POST,"/api/posts").hasAnyRole("ADMIN")
+                .antMatchers(HttpMethod.POST,"/api/auth/signup").permitAll()
                 .anyRequest()
                 .authenticated()
                 .and()
